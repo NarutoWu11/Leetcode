@@ -31,6 +31,7 @@ class Solution:
                     temp = temp.next
                     temp2 = temp2.next
                     temp3 = temp3.next
+            # to prevent situation like this: 1-->2-->2-->4-->4
             if temp2.val == last_val:
                 temp.next = None
             
