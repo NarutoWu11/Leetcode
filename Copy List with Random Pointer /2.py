@@ -11,12 +11,13 @@ class Solution:
     def copyRandomList(self, head):
         if head == None:
             return None
-        
+        # hashtable key: the original linked list;
+        # value: the corresponding new linked list node. 
         temp = head
         head2 = RandomListNode(temp.label)
         mapofNodes = {head: head2}
         temp2 = head2
-        
+    
         while temp.next:
             temp2.next = RandomListNode(temp.next.label)
             mapofNodes[temp.next] = temp2.next
