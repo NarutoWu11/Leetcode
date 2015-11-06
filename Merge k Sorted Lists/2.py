@@ -11,7 +11,9 @@ class Solution(object):
         :rtype: ListNode
         """
         start = ListNode(-1)
-        
+
+        #build the heap, sort by i.val, ascending.
+        #also push the node i as the secondary element
         heap = [[i.val, i] for i in lists if i]
         heapq.heapify(heap)
         
