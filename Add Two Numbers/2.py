@@ -22,6 +22,7 @@ class Solution(object):
             next_carry = 0
             
             while l1 or l2:
+                # didn't build a new node every time
                 if l1 and l2:
                     next_carry = (l1.val + l2.val + carry) / 10
                     l1.val = (l1.val + l2.val + carry) % 10
