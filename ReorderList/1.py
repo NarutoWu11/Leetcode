@@ -11,6 +11,7 @@ class Solution(object):
         :rtype: void Do not return anything, modify head in-place instead.
         """
         if not head or not head.next:
+            # in-place change, do not return anything
             return
         fast = slow = head
         
@@ -53,5 +54,6 @@ class Solution(object):
             first = temp
             head = temp2
         
-        
+        # in-place change, do not return anything
+        return
         
