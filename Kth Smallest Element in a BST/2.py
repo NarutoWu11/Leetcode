@@ -19,11 +19,13 @@ class Solution(object):
         self.findRightOne(root)
         return self.result
     
+    #just the inorder traversal of the tree, minus one when meet the requirements
     def findRightOne(self, root):
         if root.left:
             self.findRightOne(root.left)
         
-        #must make sure that 
+        #must make sure that when self.count == 0, stop.
+        # to prevent there is further change on self.result
         if self.count == 0:
             return
         
