@@ -5,17 +5,23 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
+        #dp[i, j] represents the max profit up until prices[j] using at most i transactions. 
+        #dp[i, j] = max(dp[i, j-1], prices[j] - prices[jj] + dp[i-1, jj]) { jj in range of [0, j-1] }
+        #= max(dp[i, j-1], prices[j] + max(dp[i-1, jj] - prices[jj]))
+        #dp[0, j] = 0; 0 transactions makes 0 profit
+        #dp[i, 0] = 0; if there is only one price data point you can't make any transaction.
+        
         if not prices or k < 1:
             return 0
         else:
+            # in this situation, we can use what the way 
             if k >= len(prices)/2:
                 maxpro = 0
                 for i in range(1, len(prices)):
-                    if prices[i] - prices[i-1] > 0:
-                        maxpro += (prices[i] - prices[i-1])
-                
+                    maxpro += max((prices[i] - prices[i-1]), 0)
                 return maxpro
             else:  
+                # optimize the space complexity
                 way = [[0] * len(prices) for i in range(2)] 
                 cur, pre = 0, 0
                 i = 1
