@@ -5,7 +5,8 @@ class Solution(object):
         :type target: int
         :rtype: bool
         """
-        
+        # O(m + n)
+
         if not matrix:
             return False
         else:
@@ -18,4 +19,3 @@ class Solution(object):
                 else:
                     j += 1
             return False
-        
