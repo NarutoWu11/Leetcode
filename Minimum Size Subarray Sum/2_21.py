@@ -26,6 +26,9 @@ class Solution(object):
             mid = (left + right) >> 1
             if sizeCheck(s, nums, mid):
                 results = min(mid, results)
+                # the reason why we can write "right = mid", is that the loop condition
+                # is: "left < right". 
+                # so if right = left + 1. then we set right = mid = left. we jump out of the loop.
                 right = mid
             else:
                 left = mid + 1
