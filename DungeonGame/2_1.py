@@ -14,12 +14,17 @@ class Solution(object):
         
         # decide the value of hp[x-1][y-1]
         if dungeon[x - 1][y - 1] < 0:
+            # if dungeon[x-1][y-1] < 0, then the smallest hp value after passing dungeon[x-1][y-1]should be 1
             hp[x - 1][y - 1] = 1
         else:
+            # if dungeon[x-1][y-1] >=0, then the smallest hp value after passing dungeon[x-1][y-1]should be 1 + dungeon[x- 1][y - 1]
+            # since hp value should be at least 1 when entering dungeon[x- 1][y - 1]
             hp[x - 1][y - 1] = dungeon[x- 1][y - 1] + 1
         
         # decide the value of the rightest col and the lowest row 
         for i in range(y-2, -1, -1):
+            # "1" is the situation hp[x-1][i+1] is positive; 
+            # "hp[x - 1][i + 1] - dungeon[x - 1][ i + 1]" is the situation hp[x-1][i+1] is negative
             hp[x - 1][i] = max(1, hp[x - 1][i + 1] - dungeon[x - 1][ i + 1])
         
         for i in range(x -2, -1, -1):
