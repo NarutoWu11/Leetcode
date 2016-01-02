@@ -15,4 +15,4 @@ class Solution(object):
             buy.append(new_buy)
             cool.append(new_cool)
         
-        return max(cool[-1],sell[-1])
+        return sell[-1]
