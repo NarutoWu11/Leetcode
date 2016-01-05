@@ -14,6 +14,14 @@ class Solution(object):
             if max_sqrt * max_sqrt == i:
                 dp[i] = 1
             else:
+                # To get the value of dp[n], we should choose the min
+                # value from:
+                #     dp[n - 1] + 1,
+                #     dp[n - 4] + 1,
+                #     dp[n - 9] + 1,
+                #     dp[n - 16] + 1
+                #     and so on...
+
                 for j in range(max_sqrt, 0, -1):
                     dp[i] = min(dp[i], dp[i - j * j] + 1)
         return dp[n]
